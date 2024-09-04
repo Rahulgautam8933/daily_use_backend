@@ -1,6 +1,17 @@
 # the month wise cal project
+dependencies-
+1.   npm install express dotenv body-parser morgan mongoose nodemon --save-dev
 
 
+
+
+
+
+
+
+
+
+git commands
 git clone https://github.com/username/repository.git
 cd repository
 git checkout -b new-branch-name
