@@ -1,3 +1,6 @@
+hello node
+
+
 # the month wise cal project
 dependencies-
 1.   npm install express dotenv body-parser morgan mongoose nodemon --save-dev
