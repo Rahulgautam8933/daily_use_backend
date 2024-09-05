@@ -1,4 +1,3 @@
-//connect the db index.js to mongodb atlas
 
 
 import mongoose from "mongoose";
