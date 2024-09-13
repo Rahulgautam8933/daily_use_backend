@@ -6,7 +6,8 @@ import { addCustomer,
      getAllCustomers,
      getCustomer,
      updateCustomerData,
-     updateCustomerDataItem } from "../controllers/customer.controller.js";
+     updateCustomerDataItem, 
+     getTotalIncome} from "../controllers/customer.controller.js";
 
 
 const routes=Router();
@@ -15,8 +16,7 @@ routes.route("/getAllCustomers").get(getAllCustomers)
 routes.route("/customers/:id").get(getCustomer)
 routes.route("/customers/:id").patch(updateCustomer)
 routes.route("/customers/:id").delete(deleteCustomer)
-
-
+routes.route("/income").get(getTotalIncome)
 
 routes.route("/customers/:id").post(updateCustomerData)
 routes.route("/customers/:customerId/data/:dataId").put(updateCustomerDataItem)
