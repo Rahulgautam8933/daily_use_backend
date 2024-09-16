@@ -2,7 +2,8 @@
 import mongoose from "mongoose";
 import { Customer } from "../models/customer.model.js";
 import { apiResponse } from "../utils/apiResponse.js";
-import { asyncHandler } from "../utils/asynchandler.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+
 
 
 const addCustomer = asyncHandler(async (req, res) => {
