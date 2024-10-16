@@ -33,19 +33,19 @@ const generateAccessAndRefreshToken = async (userId) => {
 const registerUser = asyncHandler(async (req, res) => {
 
   const { fullName, email, username, password } = req.body;
-  
-  
+
+
   const missingFields = [];
-  
+
   if (!fullName) missingFields.push("full name");
   if (!email) missingFields.push("email");
-  else if (!(email.includes("@gmail.com") || email.includes("@outlook.com") || email.includes("@yahoo.com")) ) missingFields.push("use valid extension");
+  else if (!(email.includes("@gmail.com") || email.includes("@outlook.com") || email.includes("@yahoo.com"))) missingFields.push("use valid extension");
   if (!username) missingFields.push("username");
   if (!password) missingFields.push("password");
-  
+
   console.log("working");
 
-  
+
   if (missingFields.length > 0) {
     const error = `The following fields are required: ${missingFields.join(", ")}`;
     apiError(res, 400, false, error);
@@ -67,9 +67,9 @@ const registerUser = asyncHandler(async (req, res) => {
     username: username.toLowerCase(),
   });
   const createdUser = await User.findById(user._id)
-  .select(
-    "-password -refreshToken"
-  );
+    .select(
+      "-password -refreshToken"
+    );
   if (!createdUser) {
     apiError(
       res,
@@ -87,8 +87,8 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
 
 
-  const { email,  password } = req.body;
- 
+  const { email, password } = req.body;
+
 
   if (!email) {
     apiError(res, 400, false, " email is required");
@@ -97,7 +97,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 
   const user = await User.findOne({
-    $or: [ { email }],
+    $or: [{ email }],
   });
   if (!user) {
     apiError(res, 404, false, "user doesn't exist");
@@ -237,19 +237,19 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
 
 
 
-const deleteUser=asyncHandler(async(req,res)=>{
+const deleteUser = asyncHandler(async (req, res) => {
 
 
-await User.findOneAndDelete(req.user._id)
+  await User.findOneAndDelete(req.user._id)
 
 
-const options={
-  http:true,
-  secure:true,
-}
-return res
-.status(200)
-.json(new apiResponse(200,{},"user deleted successfully"));
+  const options = {
+    http: true,
+    secure: true,
+  }
+  return res
+    .status(200)
+    .json(new apiResponse(200, {}, "user deleted successfully"));
 })
 
 
